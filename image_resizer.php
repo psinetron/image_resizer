@@ -24,7 +24,7 @@ public function sly_imageResizer($file_input, $needlyWidth=100, $needlyHeight=10
     list($realWidth, $realHeight, $file_type) = getimagesize($file_input);
     if (!$file_output){$file_output = __DIR__ . 'uploads\\'.md5(time()). basename($file_input);}
     if (!$realWidth || !$realHeight) {
-        //'Невозможно получить длину и ширину изображения';
+        //'Unable to get the length and width of the image';
         return false;
     }
     $types = array('','gif','jpeg','png');
@@ -33,7 +33,7 @@ public function sly_imageResizer($file_input, $needlyWidth=100, $needlyHeight=10
         $func = 'imagecreatefrom'.$ext;
         $img = $func($file_input);
     } else {
-        // 'Некорректный формат файла';
+        // 'Inorrect file type';
         return false;
     }
     $origY=round($needlyHeight*$realWidth/$needlyWidth);
